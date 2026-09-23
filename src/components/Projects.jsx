@@ -1,6 +1,7 @@
 import { ExternalLink } from "lucide-react";
 import { GithubIcon } from "./icons";
 import Reveal from "./Reveal";
+import ProjectGallery from "./ProjectGallery";
 import { projects } from "../data/projects";
 
 export default function Projects() {
@@ -38,11 +39,10 @@ export default function Projects() {
 function FeaturedCard({ project }) {
   return (
     <div className="glass-panel grid overflow-hidden rounded-2xl md:grid-cols-2 group transition-shadow hover:shadow-2xl hover:shadow-cyan-500/10">
-      <img
-        src={project.image}
-        alt={`${project.name} screenshot placeholder`}
-        className="h-64 w-full object-cover md:h-full"
-        loading="lazy"
+      <ProjectGallery
+        images={project.images}
+        alt={project.name}
+        heightClass="h-64 md:h-full"
       />
       <div className="p-7 sm:p-8 flex flex-col">
         <span className="section-label">Featured Project</span>
@@ -85,11 +85,10 @@ function FeaturedCard({ project }) {
 function ProjectCard({ project }) {
   return (
     <div className="glass-panel h-full overflow-hidden rounded-2xl transition-transform duration-300 hover:-translate-y-1 hover:border-[var(--color-cyan)]/40">
-      <img
-        src={project.image}
-        alt={`${project.name} screenshot placeholder`}
-        className="h-44 w-full object-cover"
-        loading="lazy"
+      <ProjectGallery
+        images={project.images}
+        alt={project.name}
+        heightClass="h-44"
       />
       <div className="p-6">
         {project.category && (

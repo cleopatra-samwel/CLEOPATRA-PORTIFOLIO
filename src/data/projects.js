@@ -1,8 +1,12 @@
 // Add new projects by copying an object below.
 // - Set "featured: true" on at most one project to show it in the large
 //   featured layout at the top of the Projects section.
-// - "image" is a placeholder path — drop real screenshots into
-//   src/assets/images/projects/ and update the path here.
+// - "images" is an array that can hold one or several screenshots. With more
+//   than one, the project card shows arrows and dots to browse them. The
+//   paths below are placeholders — import real screenshots from
+//   src/assets/images/projects/ and list them here, e.g.
+//     import queueHome from "../assets/images/projects/queue-home.png";
+//     images: [queueHome, queueDashboard],
 // - Leave "github" or "demo" as null if a link isn't ready yet; the
 //   button will show as disabled instead of linking to a fake URL.
 
@@ -13,7 +17,7 @@ export const projects = [
     name: "Dynamic Hospital Queue Management System",
     description:
       "A dynamic hospital queue management system designed to manage patient queues and improve the flow of patients through different hospital departments.",
-    image: "/placeholder-project.svg",
+    images: ["/placeholder-project.svg"],
     technologies: [
       "React",
       "Vite",
@@ -45,7 +49,7 @@ export const projects = [
     name: "Project Management System",
     description:
       "A project management system designed to manage project registration, planning, review, approval, implementation, and project-related documentation.",
-    image: "/placeholder-project.svg",
+    images: ["/placeholder-project.svg"],
     technologies: [
       "React",
       "Vite",
@@ -74,7 +78,7 @@ export const projects = [
     category: "IoT Project",
     description:
       "An IoT system designed to monitor the fill level of solid waste bins in urban market areas and provide information that can help with waste collection management.",
-    image: "/placeholder-project.svg",
+    images: ["/placeholder-project.svg"],
     technologies: [
       "ESP32",
       "LoRa",
@@ -98,7 +102,7 @@ export const projects = [
     category: "IoT Project",
     description:
       "An IoT project designed to detect fire conditions and automatically activate a fire-extinguishing mechanism.",
-    image: "/placeholder-project.svg",
+    images: ["/placeholder-project.svg"],
     technologies: ["IoT", "Sensors", "Embedded Systems"],
     features: [
       "Automatic fire condition detection",
