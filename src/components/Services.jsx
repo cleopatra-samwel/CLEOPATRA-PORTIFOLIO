@@ -21,7 +21,7 @@ export default function Services() {
             return (
               <Reveal key={service.id} delay={i * 0.05}>
                 <div className="glass-panel h-full rounded-2xl p-6">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400/20 to-blue-500/20">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20">
                     <Icon size={20} className="text-[var(--color-cyan)]" />
                   </div>
                   <h3 className="mt-4 font-display font-semibold text-lg">

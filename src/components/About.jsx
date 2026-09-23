@@ -1,6 +1,7 @@
 import { Download, GraduationCap, MapPin } from "lucide-react";
 import Reveal from "./Reveal";
 import { siteConfig } from "../data/siteConfig";
+import profile from "../assets/images/profile.jpg/profile.jpeg";
 
 export default function About() {
   return (
@@ -8,22 +9,12 @@ export default function About() {
       <div className="container-page grid gap-14 md:grid-cols-[0.85fr_1.15fr] md:items-center">
         <Reveal>
           <div className="relative mx-auto w-full max-w-sm">
-            <div className="glass-panel aspect-[4/5] rounded-2xl flex flex-col items-center justify-center gap-3 text-center p-6">
-              {/*
-                PLACEHOLDER PHOTO —
-                Replace this block with a real <img> once you have a photo:
-                1. Add your file to: src/assets/images/profile.jpg
-                2. Import it at the top of this file:
-                     import profile from "../assets/images/profile.jpg";
-                3. Replace the block below with:
-                     <img src={profile} alt={siteConfig.name} className="h-full w-full object-cover rounded-2xl" />
-              */}
-              <span className="flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 font-display text-2xl font-bold text-[#050810]">
-                {siteConfig.initials}
-              </span>
-              <p className="text-sm text-[var(--color-muted)]">
-                Profile photo placeholder
-              </p>
+            <div className="glass-panel aspect-[4/5] overflow-hidden rounded-2xl">
+              <img
+                src={profile}
+                alt={siteConfig.name}
+                className="h-full w-full object-cover rounded-2xl"
+              />
             </div>
             <div className="glass-panel absolute -bottom-5 -right-5 rounded-xl px-4 py-3 flex items-center gap-2 text-sm">
               <MapPin size={16} className="text-[var(--color-cyan)]" />

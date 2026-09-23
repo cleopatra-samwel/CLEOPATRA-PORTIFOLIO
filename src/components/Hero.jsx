@@ -74,7 +74,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="relative"
         >
-          <div className="glass-panel mx-auto w-full max-w-md rounded-2xl p-5 shadow-2xl shadow-black/40">
+          <div className="glass-panel mx-auto w-full max-w-md rounded-2xl p-5 shadow-2xl shadow-[#1E2A45]/10">
             <div className="flex items-center gap-1.5 pb-4">
               <span className="h-2.5 w-2.5 rounded-full bg-[#f87171]" />
               <span className="h-2.5 w-2.5 rounded-full bg-[#fbbf24]" />
@@ -87,7 +87,7 @@ export default function Hero() {
               {codeLines.map((line, i) => (
                 <div key={i} style={{ paddingLeft: `${line.indent * 1.1}rem` }}>
                   <span className="text-[var(--color-muted)]">{i + 1}</span>
-                  <span className="ml-4 text-[#93e8f8]">{line.text}</span>
+                  <span className="ml-4 text-[#4C1D95]">{line.text}</span>
                 </div>
               ))}
             </pre>
@@ -135,7 +135,7 @@ function NetworkBackdrop() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 60% 50% at 70% 20%, rgba(59,130,246,0.14), transparent), radial-gradient(ellipse 50% 40% at 10% 80%, rgba(34,211,238,0.10), transparent)",
+            "radial-gradient(ellipse 60% 50% at 70% 20%, rgba(124,58,237,0.12), transparent), radial-gradient(ellipse 50% 40% at 10% 80%, rgba(236,72,153,0.10), transparent)",
         }}
       />
       <svg
@@ -154,12 +154,12 @@ function NetworkBackdrop() {
           />
         ))}
         {nodes.map(([x, y], i) => (
-          <circle key={i} cx={x} cy={y} r={i % 3 === 0 ? 3 : 2} fill="#22d3ee" />
+          <circle key={i} cx={x} cy={y} r={i % 3 === 0 ? 3 : 2} fill="#7C3AED" />
         ))}
         <defs>
           <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.1" />
+            <stop offset="0%" stopColor="#7C3AED" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="#EC4899" stopOpacity="0.1" />
           </linearGradient>
         </defs>
       </svg>

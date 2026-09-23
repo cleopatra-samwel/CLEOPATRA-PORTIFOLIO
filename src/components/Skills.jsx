@@ -28,7 +28,7 @@ export default function Skills() {
             return (
               <Reveal key={cat.id} delay={i * 0.05}>
                 <div className="glass-panel h-full rounded-2xl p-6 transition-colors hover:border-[var(--color-cyan)]/40">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400/20 to-blue-500/20">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20">
                     <Icon size={20} className="text-[var(--color-cyan)]" />
                   </div>
                   <h3 className="mt-4 font-display font-semibold text-lg">
@@ -38,7 +38,7 @@ export default function Skills() {
                     {cat.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="rounded-full border border-[var(--color-line)] bg-white/[0.03] px-3 py-1 text-xs text-[var(--color-muted)]"
+                        className="rounded-full border border-[var(--color-line)] bg-[var(--color-surface-2)] px-3 py-1 text-xs text-[var(--color-muted)]"
                       >
                         {skill}
                       </span>

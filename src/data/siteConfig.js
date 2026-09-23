@@ -1,8 +1,3 @@
-// ─────────────────────────────────────────────────────────────────────────
-// SITE CONFIG — single source of truth for personal details.
-// Edit the values marked "PLACEHOLDER" and they will update everywhere
-// on the site (Hero, About, Contact, Footer, Navbar).
-// ─────────────────────────────────────────────────────────────────────────
 
 export const siteConfig = {
   name: "Cleopatra Samwel Andrea",
@@ -10,22 +5,13 @@ export const siteConfig = {
   role: "Software Developer & Computer Networks Enthusiast",
   location: "Dar es Salaam, Tanzania",
 
-  // PLACEHOLDER — replace with your real email
-  email: "your.email@example.com",
-  // PLACEHOLDER — replace with your real phone number
-  phone: "+255 6xx xxx xxx",
+  email: "cleopatrasamwel058@gmail.com",
+  phone: "+255 617 654 955",
 
-  // PLACEHOLDER — replace with your real GitHub profile URL
-  github: "https://github.com/your-username",
-  // PLACEHOLDER — replace with your real LinkedIn profile URL
-  linkedin: "https://linkedin.com/in/your-username",
+  github: "https://github.com/cleopatra-samwel",
 
-  // Put your CV file at: public/cv/Cleopatra_Samwel_Andrea_CV.pdf
-  // (a placeholder file already exists there — just replace it)
+  linkedin: "https://www.linkedin.com/in/cleopatra-samwel-7bb92a353",
   cvPath: "/cv/Cleopatra_Samwel_Andrea_CV.pdf",
-
-  // Put your photo at: src/assets/images/profile.jpg
-  // then set hasProfilePhoto to true and import it in About.jsx
   hasProfilePhoto: false,
 };
 

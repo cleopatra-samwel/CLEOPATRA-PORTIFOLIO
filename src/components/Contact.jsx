@@ -122,7 +122,7 @@ export default function Contact() {
 function ContactInfo({ icon: Icon, label, value, href }) {
   const content = (
     <div className="glass-panel flex items-center gap-4 rounded-xl p-4 transition-colors hover:border-[var(--color-cyan)]/40">
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-400/20 to-blue-500/20">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20">
         <Icon size={18} className="text-[var(--color-cyan)]" />
       </div>
       <div>
@@ -158,7 +158,7 @@ function Field({ label, name, type = "text", as = "input", rows, value, onChange
         onChange={onChange}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${inputId}-error` : undefined}
-        className="w-full rounded-lg border border-[var(--color-line)] bg-white/[0.03] px-4 py-2.5 text-sm text-[var(--color-text)] outline-none transition-colors focus:border-[var(--color-cyan)]/60"
+        className="w-full rounded-lg border border-[var(--color-line)] bg-[var(--color-surface-2)] px-4 py-2.5 text-sm text-[var(--color-text)] outline-none transition-colors focus:border-[var(--color-cyan)]/60"
       />
       {error && (
         <p id={`${inputId}-error`} className="mt-1.5 text-xs text-[#f87171]">

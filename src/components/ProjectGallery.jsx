@@ -16,7 +16,9 @@ export default function ProjectGallery({ images, alt, heightClass = "h-44" }) {
     "absolute top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/70 focus-ring";
 
   return (
-    <div className={`relative w-full overflow-hidden ${heightClass}`}>
+    <div
+      className={`relative w-full overflow-hidden bg-[var(--color-surface-2)] ${heightClass}`}
+    >
       <img
         src={images[index]}
         alt={hasMany ? `${alt} screenshot ${index + 1} of ${count}` : alt}
@@ -54,7 +56,7 @@ export default function ProjectGallery({ images, alt, heightClass = "h-44" }) {
                 className={`h-1.5 rounded-full transition-all ${
                   i === index
                     ? "w-4 bg-[var(--color-cyan)]"
-                    : "w-1.5 bg-white/50 hover:bg-white/70"
+                    : "w-1.5 bg-[var(--color-ink)]/25 hover:bg-[var(--color-ink)]/40"
                 }`}
               />
             ))}

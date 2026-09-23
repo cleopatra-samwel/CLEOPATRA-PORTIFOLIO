@@ -24,9 +24,9 @@ export default function Projects() {
           </Reveal>
         )}
 
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-6 sm:grid-cols-2">
           {rest.map((project, i) => (
-            <Reveal key={project.id} delay={i * 0.06}>
+            <Reveal key={project.id} delay={i * 0.06} className="h-full">
               <ProjectCard project={project} />
             </Reveal>
           ))}
@@ -38,11 +38,11 @@ export default function Projects() {
 
 function FeaturedCard({ project }) {
   return (
-    <div className="glass-panel grid overflow-hidden rounded-2xl md:grid-cols-2 group transition-shadow hover:shadow-2xl hover:shadow-cyan-500/10">
+    <div className="glass-panel grid overflow-hidden rounded-2xl md:grid-cols-2 group transition-shadow hover:shadow-2xl hover:shadow-purple-500/10">
       <ProjectGallery
         images={project.images}
         alt={project.name}
-        heightClass="h-64 md:h-full"
+        heightClass="h-64 md:h-full md:min-h-[22rem]"
       />
       <div className="p-7 sm:p-8 flex flex-col">
         <span className="section-label">Featured Project</span>
@@ -84,13 +84,13 @@ function FeaturedCard({ project }) {
 
 function ProjectCard({ project }) {
   return (
-    <div className="glass-panel h-full overflow-hidden rounded-2xl transition-transform duration-300 hover:-translate-y-1 hover:border-[var(--color-cyan)]/40">
+    <div className="glass-panel flex h-full flex-col overflow-hidden rounded-2xl transition-transform duration-300 hover:-translate-y-1 hover:border-[var(--color-cyan)]/40">
       <ProjectGallery
         images={project.images}
         alt={project.name}
-        heightClass="h-44"
+        heightClass="h-56"
       />
-      <div className="p-6">
+      <div className="flex flex-1 flex-col p-6">
         {project.category && (
           <span className="section-label">{project.category}</span>
         )}
@@ -110,7 +110,7 @@ function ProjectCard({ project }) {
             </span>
           ))}
         </div>
-        <div className="mt-5 flex gap-3">
+        <div className="mt-auto flex gap-3 pt-5">
           <ProjectLinkButton href={project.github} icon={GithubIcon} label="GitHub" small />
           <ProjectLinkButton href={project.demo} icon={ExternalLink} label="Live Demo" small />
         </div>

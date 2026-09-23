@@ -1,5 +1,3 @@
-// Add or remove items freely — each category renders as its own card.
-// No proficiency percentages are used on purpose (they're rarely honest).
 
 export const skillCategories = [
   {
@@ -12,7 +10,7 @@ export const skillCategories = [
     id: "backend",
     title: "Backend Development",
     icon: "Server",
-    skills: ["Node.js", "Laravel", "PHP", "REST APIs"],
+    skills: ["Node.js", "Laravel", "Django", "PHP", "REST APIs"],
   },
   {
     id: "database",
@@ -36,7 +34,7 @@ export const skillCategories = [
     id: "tools",
     title: "Tools & Workflow",
     icon: "Wrench",
-    skills: ["Git", "GitHub", "VS Code"],
+    skills: ["Git", "GitHub", "Antigravity", "VS Code"],
   },
   {
     id: "iot",

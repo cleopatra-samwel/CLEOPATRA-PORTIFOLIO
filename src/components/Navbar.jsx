@@ -22,7 +22,7 @@ export default function Navbar() {
           className="flex items-center gap-2.5 focus-ring rounded-lg"
           aria-label={`${siteConfig.name} — home`}
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 font-display font-bold text-[#050810] text-sm">
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 font-display font-bold text-white text-sm">
             {siteConfig.initials}
           </span>
           <span className="hidden sm:block font-display font-semibold text-[15px] text-[var(--color-text)]">

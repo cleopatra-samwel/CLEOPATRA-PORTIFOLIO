@@ -17,7 +17,7 @@ export default function Education() {
           {education.map((item, i) => (
             <Reveal key={item.id} delay={i * 0.08}>
               <div className="glass-panel flex gap-5 rounded-2xl p-6 sm:p-7">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400/20 to-blue-500/20">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20">
                   <GraduationCap size={22} className="text-[var(--color-cyan)]" />
                 </div>
                 <div>
