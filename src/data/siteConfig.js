@@ -1,7 +1,7 @@
 
 export const siteConfig = {
   name: "Cleopatra Samwel Andrea",
-  initials: "CSA",
+  initials: "CS",
   role: "Software Developer & Computer Networks Enthusiast",
   location: "Dar es Salaam, Tanzania",
 
@@ -12,14 +12,15 @@ export const siteConfig = {
 
   linkedin: "https://www.linkedin.com/in/cleopatra-samwel-7bb92a353",
   cvPath: "/cv/Cleopatra_Samwel_Andrea_CV.pdf",
+  // File that actually exists in public/cv/ — used by the redesigned sections.
+  cvDownload: "/cv/Cleopatra%20samwel%20cv.pdf",
   hasProfilePhoto: false,
 };
 
 export const navLinks = [
-  { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
-  { label: "Education", href: "#education" },
+  { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];

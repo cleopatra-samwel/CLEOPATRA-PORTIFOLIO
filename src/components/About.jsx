@@ -1,4 +1,4 @@
-import { Download, GraduationCap, MapPin } from "lucide-react";
+import { GraduationCap, MapPin } from "lucide-react";
 import Reveal from "./Reveal";
 import { siteConfig } from "../data/siteConfig";
 import profile from "../assets/images/profile.jpg/profile.jpeg";
@@ -48,20 +48,6 @@ export default function About() {
             Bachelor of Computer Systems and Networks — Ardhi University
           </div>
 
-          <a
-            href={siteConfig.cvPath}
-            download
-            className="btn-primary mt-8 inline-flex"
-          >
-            <Download size={16} />
-            Download CV
-          </a>
-          <p className="mt-3 text-xs text-[var(--color-muted)]">
-            Placeholder link — add your CV file at{" "}
-            <code className="text-[var(--color-cyan)]">
-              public/cv/Cleopatra_Samwel_Andrea_CV.pdf
-            </code>
-          </p>
         </Reveal>
       </div>
     </section>

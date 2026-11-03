@@ -1,93 +1,75 @@
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { Download, Mail } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "./icons";
 import { navLinks, siteConfig } from "../data/siteConfig";
-import { useScrolled } from "../hooks/useScrolled";
+
+const iconLink =
+  "hidden sm:flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--color-line)] text-[var(--color-muted)] hover:text-[var(--color-cyan)] hover:border-[var(--color-cyan)]/50 transition-colors focus-ring";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
-  const scrolled = useScrolled();
-
-  const closeMenu = () => setOpen(false);
-
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
-        scrolled ? "glass-panel" : "bg-transparent border-b border-transparent"
-      }`}
-    >
-      <nav className="container-page flex items-center justify-between h-18 py-4">
-        <a
-          href="#home"
-          className="flex items-center gap-2.5 focus-ring rounded-lg"
-          aria-label={`${siteConfig.name} — home`}
-        >
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 font-display font-bold text-white text-sm">
-            {siteConfig.initials}
-          </span>
-          <span className="hidden sm:block font-display font-semibold text-[15px] text-[var(--color-text)]">
-            {siteConfig.name.split(" ")[0]} {siteConfig.name.split(" ")[1]}
-          </span>
-        </a>
+    <header className="sticky top-0 z-50 bg-[var(--color-surface)]">
+      {/* Layer 1: identity + links */}
+      <div className="border-b border-[var(--color-line)]">
+        <div className="container-page flex items-center justify-between gap-3 py-3">
+          <a
+            href="#home"
+            className="flex min-w-0 items-center gap-3 rounded-lg focus-ring"
+            aria-label={`${siteConfig.name} — home`}
+          >
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--color-ink)] font-display text-sm font-bold text-white">
+              {siteConfig.initials}
+            </span>
+            <span className="min-w-0 leading-tight">
+              <span className="block truncate font-display text-[13px] font-bold uppercase tracking-wide sm:text-sm">
+                {siteConfig.name}
+              </span>
+              <span className="block truncate text-[11px] text-[var(--color-muted)] sm:text-xs">
+                {siteConfig.role}
+              </span>
+            </span>
+          </a>
 
-        <ul className="hidden md:flex items-center gap-8">
+          <div className="flex shrink-0 items-center gap-2">
+            <a href={siteConfig.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className={iconLink}>
+              <LinkedinIcon size={16} />
+            </a>
+            <a href={siteConfig.github} target="_blank" rel="noreferrer" aria-label="GitHub" className={iconLink}>
+              <GithubIcon size={16} />
+            </a>
+            <a href={`mailto:${siteConfig.email}`} aria-label="Email" className={iconLink}>
+              <Mail size={16} />
+            </a>
+            <a
+              href={siteConfig.cvDownload}
+              download
+              className="btn-ink !rounded-lg !px-3 !py-2 !text-[13px] sm:!px-4"
+            >
+              <Download size={14} />
+              <span className="hidden min-[420px]:inline">Download CV</span>
+              <span className="min-[420px]:hidden">CV</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Layer 2: section menu */}
+      <nav
+        aria-label="Sections"
+        className="border-b border-[var(--color-line)] bg-[var(--color-surface-2)]"
+      >
+        <ul className="container-page no-scrollbar flex gap-6 overflow-x-auto whitespace-nowrap">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors focus-ring rounded"
+                className="inline-block border-b-2 border-transparent py-2.5 text-sm font-medium text-[var(--color-muted)] transition-colors hover:border-[var(--color-cyan)] hover:text-[var(--color-text)] focus-ring"
               >
                 {link.label}
               </a>
             </li>
           ))}
         </ul>
-
-        <a href="#contact" className="hidden md:inline-flex btn-primary !py-2.5 !px-5 text-sm">
-          Contact Me
-        </a>
-
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--color-line)] text-[var(--color-text)] focus-ring"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-        >
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
       </nav>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="md:hidden overflow-hidden glass-panel border-t"
-          >
-            <ul className="container-page py-4 flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={closeMenu}
-                    className="block py-2.5 text-[15px] font-medium text-[var(--color-text)] focus-ring rounded"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-              <li className="pt-2">
-                <a href="#contact" onClick={closeMenu} className="btn-primary w-full text-sm">
-                  Contact Me
-                </a>
-              </li>
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </header>
   );
 }

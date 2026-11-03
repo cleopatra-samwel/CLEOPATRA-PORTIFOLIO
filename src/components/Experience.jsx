@@ -1,63 +1,49 @@
-import { Briefcase } from "lucide-react";
-import Reveal from "./Reveal";
-import { experience } from "../data/education";
+import { education, experience } from "../data/education";
+
+// Experience first, then education, in one vertical timeline.
+const items = [
+  ...experience.map((e) => ({
+    id: e.id,
+    period: e.period,
+    title: e.title,
+    org: e.organization,
+    description: e.description,
+  })),
+  ...education.map((e) => ({
+    id: e.id,
+    period: e.period,
+    title: e.degree,
+    org: e.institution,
+    description: e.description,
+  })),
+];
 
 export default function Experience() {
   return (
-    <section className="py-24 md:py-32">
-      <div className="container-page max-w-3xl">
-        <Reveal>
-          <p className="section-label text-center">Experience &amp; Training</p>
-          <h2 className="mt-3 text-center font-display text-3xl sm:text-4xl font-semibold">
-            Practical experience
-          </h2>
-        </Reveal>
+    <section id="experience" className="section-block">
+      <div className="container-page">
+        <p className="eyebrow">Background</p>
+        <h2 className="section-title">Experience &amp; Education</h2>
+        <p className="section-sub">Practical training and academic study.</p>
 
-        <div className="mt-12">
-          {experience.length === 0 ? (
-            <Reveal delay={0.1}>
-              <div className="glass-panel rounded-2xl p-8 text-center">
-                <Briefcase
-                  size={22}
-                  className="mx-auto text-[var(--color-cyan)]"
-                />
-                <p className="mt-4 text-[var(--color-muted)]">
-                  Practical training and work experience will be added here
-                  as it happens.
-                </p>
-                <p className="mt-3 text-xs text-[var(--color-muted)]">
-                  To add an entry, edit the{" "}
-                  <code className="text-[var(--color-cyan)]">experience</code>{" "}
-                  array in{" "}
-                  <code className="text-[var(--color-cyan)]">
-                    src/data/education.js
-                  </code>
-                </p>
-              </div>
-            </Reveal>
-          ) : (
-            <div className="space-y-6">
-              {experience.map((item, i) => (
-                <Reveal key={item.id} delay={i * 0.08}>
-                  <div className="glass-panel rounded-2xl p-6 sm:p-7">
-                    <p className="text-sm font-medium text-[var(--color-cyan)]">
-                      {item.period}
-                    </p>
-                    <h3 className="mt-1 font-display text-xl font-semibold">
-                      {item.title}
-                    </h3>
-                    <p className="text-[var(--color-muted)]">
-                      {item.organization}
-                    </p>
-                    <p className="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          )}
-        </div>
+        <ol className="relative mt-10 max-w-3xl border-l border-[var(--color-line)] pl-8">
+          {items.map((item) => (
+            <li key={item.id} className="relative pb-10 last:pb-0">
+              <span
+                className="absolute -left-[2.55rem] top-1 h-4 w-4 rounded-full border-2 border-[var(--color-cyan)] bg-[var(--color-surface)]"
+                aria-hidden="true"
+              />
+              <p className="mono text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)]">
+                {item.period}
+              </p>
+              <h3 className="mt-1 font-display text-lg font-semibold">{item.title}</h3>
+              <p className="font-medium text-[var(--color-cyan)]">{item.org}</p>
+              <p className="mt-2 text-sm leading-relaxed text-[var(--color-muted)]">
+                {item.description}
+              </p>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );

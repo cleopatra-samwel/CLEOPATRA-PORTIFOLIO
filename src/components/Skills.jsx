@@ -1,53 +1,38 @@
-import {
-  Code2,
-  Server,
-  Database,
-  Network,
-  Wrench,
-  Cpu,
-} from "lucide-react";
-import Reveal from "./Reveal";
 import { skillCategories } from "../data/skills";
 
-const icons = { Code2, Server, Database, Network, Wrench, Cpu };
+// The data file keeps six detailed categories; the section shows them
+// grouped into four cards.
+const groups = [
+  { title: "Frontend", ids: ["frontend"] },
+  { title: "Backend & Data", ids: ["backend", "database"] },
+  { title: "Networking", ids: ["networking"] },
+  { title: "Systems & Tools", ids: ["tools", "iot"] },
+].map((g) => ({
+  ...g,
+  skills: g.ids.flatMap((id) => skillCategories.find((c) => c.id === id)?.skills ?? []),
+}));
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 md:py-32 bg-[var(--color-surface-2)]">
+    <section id="skills" className="section-block">
       <div className="container-page">
-        <Reveal>
-          <p className="section-label text-center">Skills</p>
-          <h2 className="mt-3 text-center font-display text-3xl sm:text-4xl font-semibold">
-            Technologies I work with
-          </h2>
-        </Reveal>
+        <p className="eyebrow">Toolbox</p>
+        <h2 className="section-title">Skills</h2>
+        <p className="section-sub">Tools I have used to build real work.</p>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {skillCategories.map((cat, i) => {
-            const Icon = icons[cat.icon] ?? Code2;
-            return (
-              <Reveal key={cat.id} delay={i * 0.05}>
-                <div className="glass-panel h-full rounded-2xl p-6 transition-colors hover:border-[var(--color-cyan)]/40">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20">
-                    <Icon size={20} className="text-[var(--color-cyan)]" />
-                  </div>
-                  <h3 className="mt-4 font-display font-semibold text-lg">
-                    {cat.title}
-                  </h3>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {cat.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="rounded-full border border-[var(--color-line)] bg-[var(--color-surface-2)] px-3 py-1 text-xs text-[var(--color-muted)]"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
-            );
-          })}
+        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+          {groups.map((g) => (
+            <div key={g.title} className="card p-6">
+              <h3 className="font-display text-lg font-semibold">{g.title}</h3>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {g.skills.map((s) => (
+                  <li key={s} className="chip !py-1 !text-[13px]">
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </section>

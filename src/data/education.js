@@ -12,6 +12,14 @@ export const education = [
 // Add practical training or work experience here as you complete it.
 export const experience = [
   {
+    id: "powergrid",
+    title: "Digital Marketing (Part-time)",
+    organization: "Powergrid Engineering Co. Ltd",
+    period: "November 2026 – Present",
+    description:
+      "Handling digital marketing for an engineering company that delivers solar and energy storage systems, electrical works, generators and UPS, power distribution, security systems and EV charging across Tanzania.",
+  },
+  {
     id: "095",
     title: "Software Development Practical Training",
     organization: "National Social Security Fund (NSSF)",

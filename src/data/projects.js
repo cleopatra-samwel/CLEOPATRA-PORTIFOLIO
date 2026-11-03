@@ -31,6 +31,20 @@ const fireExtinguisherImages = sortByPath(
   })
 );
 
+const medicubeImages = sortByPath(
+  import.meta.glob("../assets/images/projects/medicube-ecommerce/*.{jpg,jpeg,png}", {
+    eager: true,
+    import: "default",
+  })
+);
+
+const powergridImages = sortByPath(
+  import.meta.glob("../assets/images/projects/powergrid-website/*.{jpg,jpeg,png}", {
+    eager: true,
+    import: "default",
+  })
+);
+
 const hospitalQueueImages = sortByPath(
   import.meta.glob("../assets/images/projects/hospital-queue/*.{jpg,jpeg,png}", {
     eager: true,
@@ -54,7 +68,45 @@ const smartWasteBinImages = sortByPath(
 
 export const projects = [
   {
+    id: "medicube-ecommerce",
+    type: "web",
+    featured: false,
+    name: "Medicube Skincare E-commerce Store",
+    description:
+      "An online store for Medicube skincare products (in progress). Customers browse and choose products, add them to a cart, pay online and have their order delivered to their location.",
+    // No screenshots yet — add files to src/assets/images/projects/medicube-ecommerce/
+    images: medicubeImages.length ? medicubeImages : ["/placeholder-project.svg"],
+    technologies: ["E-commerce", "Shopping Cart", "Online Checkout", "Delivery"],
+    features: [
+      "Product browsing and selection",
+      "Shopping cart",
+      "Online purchase and checkout",
+      "Delivery to the customer's location",
+    ],
+    github: null,
+    demo: null,
+  },
+  {
+    id: "powergrid-website",
+    type: "web",
+    featured: false,
+    name: "Powergrid Engineering Company Website",
+    description:
+      "A live business website for Powergrid Engineering Co. Ltd, a Dar es Salaam solar and electrical engineering company. It presents the company's services, a project media gallery and a quote request form.",
+    // No screenshots yet — add files to src/assets/images/projects/powergrid-website/
+    images: powergridImages.length ? powergridImages : ["/placeholder-project.svg"],
+    technologies: ["Business Website", "Services Pages", "Media Gallery", "Quote Request Form"],
+    features: [
+      "Services overview",
+      "Media gallery of project photos and videos",
+      "Quote request form",
+    ],
+    github: null,
+    demo: "https://powergridengineering.co.tz/",
+  },
+  {
     id: "hospital-queue",
+    type: "web", // filter group: "web" | "iot"
     featured: false,
     name: "Dynamic Hospital Queue Management System",
     description:
@@ -91,6 +143,7 @@ export const projects = [
   },
   {
     id: "project-management-system",
+    type: "web", // filter group: "web" | "iot"
     featured: true,
     name: "Project Management System",
     description:
@@ -119,6 +172,7 @@ export const projects = [
   },
   {
     id: "smart-waste-bin",
+    type: "iot", // filter group: "web" | "iot"
     featured: false,
     name: "Smart Solid Waste Bin Fill-Level Monitoring System",
     category: "IoT Project",
@@ -143,6 +197,7 @@ export const projects = [
   },
   {
     id: "fire-extinguishing-system",
+    type: "iot", // filter group: "web" | "iot"
     featured: false,
     name: "IoT Automatic Fire Extinguishing System",
     category: "IoT Project",
@@ -159,6 +214,7 @@ export const projects = [
   },
   {
     id: "smart-energy-monitoring",
+    type: "iot", // filter group: "web" | "iot"
     featured: false,
     name: "Smart Energy Monitoring and Load Management System",
     category: "IoT Project",
